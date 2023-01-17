@@ -1,5 +1,6 @@
 /* Header
 ========================================================================== */
+
 .header-wrapper {
   padding: 20px;
   background-color: var(--menu-top-bg-color);
@@ -39,7 +40,6 @@ header {
   max-width: 100px;
   height: auto;
   object-fit: contain; /* scale image keeping proportions */
-  filter: brightness(1);
 }
 
 .top-brand .brand-name {
@@ -206,8 +206,9 @@ ul.menu {
   }
 
   .top-login {
-    display: grid;
-    grid-template-columns: auto auto auto;
+    grid-area: login;
+    justify-self: end;
+    padding-right: 3rem;
   }
 
   .top-brand {

@@ -24,10 +24,10 @@
   --body-font-family: 'Roboto', sans-serif;
   --footer-bg-color: #EDF1F3;
   --heading-font-family: 'Roboto', sans-serif;
-  --link-color: #9B7E6E;
-  --darkest-color: #29343A;
-  --medium-color: #6E8B9B;
-  --light-color: ##DBE2E6;
-  --bright-color: #85C86F;
+  --link-color: #126c00;
+  --darkest-color: #1b3d2f;
+  --medium-color: #5a5a53;
+  --light-color: #f2f0e9;
+  --bright-color: #B9D432;
   --max-innertext-width: 1024px;
 }

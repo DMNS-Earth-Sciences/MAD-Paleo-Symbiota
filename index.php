@@ -1,9 +1,10 @@
 <?php
 include_once('config/symbini.php');
-include_once('content/lang/index.'.$LANG_TAG.'.php');
-header("Content-Type: text/html; charset=".$CHARSET);
+if($LANG_TAG == 'en' || !file_exists($SERVER_ROOT.'/content/lang/templates/index.'.$LANG_TAG.'.php')) include_once($SERVER_ROOT.'/content/lang/templates/index.en.php');
+else include_once($SERVER_ROOT.'/content/lang/templates/index.'.$LANG_TAG.'.php');
+header('Content-Type: text/html; charset=' . $CHARSET);
 ?>
-<html>
+<!DOCTYPE html>
 <head>
 	<title><?php echo $DEFAULT_TITLE; ?> Home</title>
 	<?php
@@ -34,14 +35,15 @@ header("Content-Type: text/html; charset=".$CHARSET);
 	include($SERVER_ROOT.'/includes/header.php');
 	?>
 	<!-- This is inner text! -->
+	<div class="navpath"></div>
 	<div id="innertext">
 		<h1></h1>
 		<div id="quicksearchdiv">
 			<!-- -------------------------QUICK SEARCH SETTINGS--------------------------------------- -->
 			<form name="quicksearch" id="quicksearch" action="<?php echo $CLIENT_ROOT; ?>/taxa/index.php" method="get" onsubmit="return verifyQuickSearch(this);">
-				<div id="quicksearchtext" ><?php echo (isset($LANG['QSEARCH_SEARCH'])?$LANG['QSEARCH_SEARCH']:'Taxon Search'); ?></div>
+				<div id="quicksearchtext" ><?= $LANG['QSEARCH_SEARCH']; ?></div>
 				<input id="taxa" type="text" name="taxon" />
-				<button name="formsubmit"  id="quicksearchbutton" type="submit" value="Search Terms"><?php echo (isset($LANG['QSEARCH_SEARCH_BUTTON'])?$LANG['QSEARCH_SEARCH_BUTTON']:'Search'); ?></button>
+				<button name="formsubmit"  id="quicksearchbutton" type="submit" value="Search Terms"><?= $LANG['QSEARCH_SEARCH_BUTTON']; ?></button>
 			</form>
 		</div>
 		<div style="padding: 0px 10px;">
@@ -54,7 +56,7 @@ header("Content-Type: text/html; charset=".$CHARSET);
 				fishes, frogs, turtles, lizards, snakes, crocodyliforms, non-avian dinosaurs, birds, and mammals. Many of the specimens recovered represent animals that are new to science––we have 
 				named and described 20 new taxa––and include complete skulls and skeletons that are the most complete for entire clades.
 			</p>
-			<img src="/madpaleo/portal/images/layout/madpaleofooterbanner.png" style="width:100%">
+			<img src="<?= $CLIENT_ROOT ?>/images/layout/madpaleofooterbanner.png" style="width:100%">
 		</div>
 	</div>
 	<?php
